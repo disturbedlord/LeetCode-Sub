@@ -21,7 +21,7 @@ public:
         long long int res = 0;
         int idx = 1;
         //cout<<pq.size()<<endl;
-        while(!pq.empty()){
+        while(!pq.empty() && idx <= right){
             //cout<<pq.top()<<endl;
             if(idx >= left && idx <= right){
                 res += -pq.top();
