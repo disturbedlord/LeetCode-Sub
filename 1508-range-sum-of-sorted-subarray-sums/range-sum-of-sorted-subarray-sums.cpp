@@ -1,38 +1,29 @@
-typedef priority_queue<long long int> pqueue;
-#define MOD (1000000007);
+typedef priority_queue<pair<int,int>> p;
+#define MOD 1000000007
 class Solution {
 public:
     int rangeSum(vector<int>& nums, int n, int left, int right) {
-        pqueue pq;
-
-        for(int i=0;i<n;i++){
-            long long int sum = 0;
-            for(int j=i;j<n;j++){
-                sum += nums[j];
-                sum %= MOD;
-                //if(i == 0){
-                //cout<<nums[j]<<" - "<<(1000000007)<<endl;
-                //cout<<"S : "<<sum<<" : "<< -sum<<endl;
-                //}
-                pq.push(-sum);
-            }
-        }
-
-        long long int res = 0;
+        p pq;
+        for(int i=0;i<n;i++)pq.push({-nums[i] % MOD , i}); 
+        //cout<<-nums[i]<<" : "<<i<<endl;}
+        int res = 0;
         int idx = 1;
-        //cout<<pq.size()<<endl;
-        while(!pq.empty() && idx <= right){
-            //cout<<pq.top()<<endl;
-            if(idx >= left && idx <= right){
-                res += -pq.top();
-                res %= MOD;
-                //cout<<res<<endl;
-            }
+        while(idx <= right && !pq.empty()){
+            auto top = pq.top();
             pq.pop();
+            //cout<<top.first<<endl;
+            if(idx >= left){
+                res += -top.first;
+                res %= MOD;
+            }
+
+            if(top.second + 1 < n){
+                auto next = -top.first + nums[top.second + 1];
+                pq.push({-next , top.second + 1});
+                //cout<<"NEXR : "<<next<<endl;
+            }
             idx ++;
         }
-
-        //cout<<idx<<endl;
 
         return res;
     }
