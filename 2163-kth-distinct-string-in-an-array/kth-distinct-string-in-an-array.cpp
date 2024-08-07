@@ -1,7 +1,7 @@
 class Solution {
 public:
     string kthDistinct(vector<string>& arr, int k) {
-        map<string , int> mp = map<string,int>();
+        unordered_map<string , int> mp = unordered_map<string,int>();
         int n = arr.size();
         string res = "";
 
