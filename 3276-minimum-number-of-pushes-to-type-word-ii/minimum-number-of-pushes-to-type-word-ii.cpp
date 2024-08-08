@@ -1,6 +1,7 @@
 class Solution {
 public:
     int minimumPushes(string word) {
+        cin.sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
         unordered_map<char,int> mp = unordered_map<char, int>();
 
