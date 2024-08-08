@@ -8,14 +8,14 @@ public:
 
         priority_queue<int> pq = priority_queue<int>();
         for(auto kv : mp){
-            pq.push(mp[kv.first]);
+            pq.push(kv.second);
         }
 
         int res = 0;
         int idx = 0;
         int cnt = 0;
         int press = 1;
-        
+
         while(!pq.empty()){
             auto top = pq.top();pq.pop();
             res = res + press * top;
