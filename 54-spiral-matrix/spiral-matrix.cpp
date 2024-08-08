@@ -2,7 +2,7 @@ class Solution {
 public:
 
     vector<pair<int,int>> directions = {{0 , 1} , {1 , 0} , {-1 , 0}, {0 , -1}};
-    int next = 0;
+    inline static int next = 0;
     pair<int,int> nextStep(){
         int nn = next;
         next ++;
