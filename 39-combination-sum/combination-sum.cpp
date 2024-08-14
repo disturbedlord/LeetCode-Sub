@@ -19,6 +19,7 @@ public:
 
     vector<vector<int>> combinationSum(vector<int>& c, int target) {
         int n = c.size();
+        sort(c.begin() , c.end());
         solve(c , target , 0 , {} , n);
         return res;
     }
