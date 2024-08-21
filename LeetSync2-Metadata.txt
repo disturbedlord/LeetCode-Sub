@@ -2,3 +2,4 @@
 13-roman-to-integer|Easy|1723746600000
 1004-max-consecutive-ones-iii|Medium|1723746600000
 424-longest-repeating-character-replacement|Medium|1723833000000
+650-2-keys-keyboard|Medium|1724178600000
