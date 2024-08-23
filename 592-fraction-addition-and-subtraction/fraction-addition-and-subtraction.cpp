@@ -1,6 +1,10 @@
 class Solution {
 public:
+    //TC : O(n + sqrt(min(a , b))) | where a , b are the upper limit numerator and Denominator
+    //SC : O(n)
 
+
+    //O(sqrt(min(n , m)))
     pair<int,int> commonFactor(int n , int m){
         int t = min(abs(n) , abs(m));
         int i = t;
@@ -29,6 +33,7 @@ public:
         int deno = 1;
         vector<char> symbols = {'-' , '+' , '/'};
         vector<int> mem;
+        //O(n * 3 ~ n)
         for(int i=0;i<n;i++){
             //cout<<i<<endl;
             if(!count(symbols.begin() , symbols.end() , exp[i])){
