@@ -3,11 +3,13 @@ public:
 
     pair<int,int> commonFactor(int n , int m){
         int t = min(abs(n) , abs(m));
-        int i = 2;
-        while(i <= t){
-            while(n % i == 0 && m % i == 0)n /= i , m /= i;
+        int i = t;
+        int flag = 0;
+        while(i > 1){
+            if(n % i == 0 && m % i == 0){n /= i , m /= i;break;}
+            // if()
             t = min(abs(n) , abs(m));
-            i++;
+            i--;
         }
 
         return {n , m};
