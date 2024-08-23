@@ -46,10 +46,10 @@ public:
         }
         if(nume == 0) return "0/1";
 
-        for(auto a : mem) cout<<a<<" ";
+        //for(auto a : mem) cout<<a<<" ";
         auto f = commonFactor(nume, deno);
-        cout<<nume<<" "<<deno<<endl;
-        cout<<f.first<<" "<<f.second<<endl;
+        //cout<<nume<<" "<<deno<<endl;
+        //cout<<f.first<<" "<<f.second<<endl;
 
         if(f.second == 1) return to_string(f.first) + "/1";
         else return to_string(f.first) + "/" + to_string(f.second);
