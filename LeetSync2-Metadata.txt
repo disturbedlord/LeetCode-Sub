@@ -4,3 +4,4 @@
 424-longest-repeating-character-replacement|Medium|1723833000000
 650-2-keys-keyboard|Medium|1724178600000
 476-number-complement|Easy|1724265000000
+592-fraction-addition-and-subtraction|Medium|1724437800000
