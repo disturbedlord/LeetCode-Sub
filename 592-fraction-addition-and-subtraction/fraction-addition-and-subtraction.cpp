@@ -7,7 +7,7 @@ public:
         if(n % i == 0 && m % i == 0){n /= i , m /= i;return {n , m};}
         int flag = 0;
         i = sqrt(i);
-        cout<<"SQ"<<i<<" " <<t<<" "<<n<<" :"<<m<<endl;
+        //cout<<"SQ"<<i<<" " <<t<<" "<<n<<" :"<<m<<endl;
         while(i > 1){
             while(n % i == 0 && m % i == 0){n /= i , m /= i;}
             // if()
