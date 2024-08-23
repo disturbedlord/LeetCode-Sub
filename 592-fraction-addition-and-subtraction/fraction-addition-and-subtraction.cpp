@@ -4,11 +4,14 @@ public:
     pair<int,int> commonFactor(int n , int m){
         int t = min(abs(n) , abs(m));
         int i = t;
+        if(n % i == 0 && m % i == 0){n /= i , m /= i;return {n , m};}
         int flag = 0;
+        i = sqrt(i);
+        cout<<"SQ"<<i<<" " <<t<<" "<<n<<" :"<<m<<endl;
         while(i > 1){
-            if(n % i == 0 && m % i == 0){n /= i , m /= i;break;}
+            while(n % i == 0 && m % i == 0){n /= i , m /= i;}
             // if()
-            t = min(abs(n) , abs(m));
+            //t = min(abs(n) , abs(m));
             i--;
         }
 
