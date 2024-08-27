@@ -56,18 +56,15 @@ public:
         queue<Node*> queue;
         Node* root = new Node(node->val);
         queue.push(node); //ori
-        queue.push(root); //clone
-
+        memo[root->val] = root;
         while(!queue.empty()){
             auto ori = queue.front();
-            queue.pop();
-            auto clone = queue.front();
             queue.pop();
             
             // cout<<ori<<" "<<clone<<" ";
             
-            if(memo.find(ori->val) == memo.end()) memo[clone->val] = clone;
-            
+            //if(memo.find(ori->val) == memo.end()) memo[clone->val] = clone;
+            auto clone = memo[ori->val];
 
             for(auto child : ori->neighbors){
                 // cout<<child->val<<" ";
@@ -76,7 +73,6 @@ public:
                     auto cl = new Node(child->val);
                     clone->neighbors.push_back(cl);
                     queue.push(child);
-                    queue.push(cl);
                     memo[cl->val] = cl;
                 }else{
                     clone->neighbors.push_back(memo[child->val]);
