@@ -6,3 +6,4 @@
 476-number-complement|Easy|1724265000000
 592-fraction-addition-and-subtraction|Medium|1724437800000
 133-clone-graph|Medium|1724697000000
+797-all-paths-from-source-to-target|Medium|1724697000000
