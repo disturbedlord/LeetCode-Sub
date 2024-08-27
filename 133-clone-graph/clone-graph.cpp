@@ -21,10 +21,13 @@ public:
 
 class Solution {
 public:
+
+    //TC : O(n)
+    //SC : O(n + n) ~ O(n) recursion will take extra n space 
+
     unordered_map<int,Node*> seen;
     Node* clone(Node* node , Node* prev){
         if(node == NULL) return node;
-        //cout<<node->val<<endl;
         Node* root = new Node(node->val);
         seen[root->val] = root;
         for(auto n : node->neighbors){
@@ -35,18 +38,13 @@ public:
                 else root->neighbors.push_back(clone(n , node));
             }
         }
-        //cout<<"Root : "<<root->val<<endl;
         return root;
     }
 
     Node* cloneGraph(Node* node) {
-        //cout<<node<<endl;
         if(node == NULL) return NULL;
         Node* prev = new Node(node->val);
         Node* res = clone(node , prev);
-               // for(auto x : node->neighbors) cout<<x<<endl;
-
-        //for(auto x : res->neighbors) cout<<x->val<<" : "<<x<<endl;
         return res;
         
     }
