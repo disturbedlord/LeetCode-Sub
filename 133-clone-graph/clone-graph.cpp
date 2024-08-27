@@ -58,7 +58,6 @@ public:
         queue.push(node); //ori
         queue.push(root); //clone
 
-        vector<Node*> test;
         while(!queue.empty()){
             auto ori = queue.front();
             queue.pop();
@@ -69,7 +68,7 @@ public:
             
             if(memo.find(ori->val) == memo.end()) memo[clone->val] = clone;
             
-            test.push_back(clone);
+
             for(auto child : ori->neighbors){
                 // cout<<child->val<<" ";
                 if(memo.find(child->val) == memo.end()){
