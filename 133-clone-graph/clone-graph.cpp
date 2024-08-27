@@ -44,10 +44,57 @@ public:
     }
 
     Node* cloneGraph(Node* node) {
-        if(node == NULL) return NULL;
-        Node* prev = new Node(node->val);
-        Node* res = DFS(node , prev);
-        return res;
+        // if(node == NULL) return NULL;
+        // Node* prev = new Node(node->val);
+        // Node* res = DFS(node , prev);
+        // return res;
         
+        //Using Queue
+        if(node == NULL) return NULL;
+        unordered_map<int,Node*> memo;
+
+        queue<Node*> queue;
+        Node* root = new Node(node->val);
+        queue.push(node); //ori
+        queue.push(root); //clone
+
+        vector<Node*> test;
+        while(!queue.empty()){
+            auto ori = queue.front();
+            queue.pop();
+            auto clone = queue.front();
+            queue.pop();
+            
+            // cout<<ori<<" "<<clone<<" ";
+            
+            if(memo.find(ori->val) == memo.end()) memo[clone->val] = clone;
+            
+            test.push_back(clone);
+            for(auto child : ori->neighbors){
+                // cout<<child->val<<" ";
+                if(memo.find(child->val) == memo.end()){
+                    //auto ch = new Node(child->val);
+                    auto cl = new Node(child->val);
+                    clone->neighbors.push_back(cl);
+                    queue.push(child);
+                    queue.push(cl);
+                    memo[cl->val] = cl;
+                }else{
+                    clone->neighbors.push_back(memo[child->val]);
+                }
+            }
+            //cout<<endl;
+        }
+    // cout<<endl;
+    //     for(auto x : memo) {cout<<x.second->val<<" : "; for(auto y : x.second->neighbors) cout<<y->val<<" ";cout<<endl;}
+
+    //     for(auto x : test){
+    //         cout<<x->val<<" ";
+    //         for(auto y : x->neighbors){
+    //             cout<<y->val<< " ";
+    //         }
+    //         cout<<endl;
+    //     }
+        return root;
     }
 };
