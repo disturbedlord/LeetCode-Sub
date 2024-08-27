@@ -31,12 +31,18 @@ public:
         Node* root = new Node(node->val);
         seen[root->val] = root;
         for(auto n : node->neighbors){
-            if(prev != NULL && prev->val == n->val) root->neighbors.push_back(seen[prev->val]);
-            if(prev != NULL && prev->val != n->val) {
-                if(seen.find(n->val) != seen.end())
-                    root->neighbors.push_back(seen[n->val]);
-                else root->neighbors.push_back(clone(n , node));
+
+            if(seen.find(n->val) == seen.end()){
+                root->neighbors.push_back(clone(n , root));
+            }else{
+                root->neighbors.push_back(seen[n->val]);
             }
+            // if(prev != NULL && prev->val == n->val) root->neighbors.push_back(seen[prev->val]);
+            // if(prev != NULL && prev->val != n->val) {
+            //     if(seen.find(n->val) != seen.end())
+            //         root->neighbors.push_back(seen[n->val]);
+            //     else root->neighbors.push_back(clone(n , node));
+            // }
         }
         return root;
     }
