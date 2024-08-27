@@ -24,25 +24,21 @@ public:
 
     //TC : O(n)
     //SC : O(n + n) ~ O(n) recursion will take extra n space 
-
+    /*Idea : Use Depth First Search (Keep navigating the child, then go for sibling) to get each node
+    if the node was already processed, get it from memory (using dict) else do DFS on the node
+    */
     unordered_map<int,Node*> seen;
-    Node* clone(Node* node , Node* prev){
+    Node* DFS(Node* node , Node* prev){
         if(node == NULL) return node;
         Node* root = new Node(node->val);
         seen[root->val] = root;
         for(auto n : node->neighbors){
 
             if(seen.find(n->val) == seen.end()){
-                root->neighbors.push_back(clone(n , root));
+                root->neighbors.push_back(DFS(n , root));
             }else{
                 root->neighbors.push_back(seen[n->val]);
             }
-            // if(prev != NULL && prev->val == n->val) root->neighbors.push_back(seen[prev->val]);
-            // if(prev != NULL && prev->val != n->val) {
-            //     if(seen.find(n->val) != seen.end())
-            //         root->neighbors.push_back(seen[n->val]);
-            //     else root->neighbors.push_back(clone(n , node));
-            // }
         }
         return root;
     }
@@ -50,7 +46,7 @@ public:
     Node* cloneGraph(Node* node) {
         if(node == NULL) return NULL;
         Node* prev = new Node(node->val);
-        Node* res = clone(node , prev);
+        Node* res = DFS(node , prev);
         return res;
         
     }
