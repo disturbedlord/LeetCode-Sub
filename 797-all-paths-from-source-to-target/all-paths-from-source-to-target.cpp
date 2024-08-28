@@ -1,21 +1,26 @@
 class Solution {
 public:
-    vector<vector<int>> res;
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& g) {
+        int n = g.size();
+        if(0 == n) return {};
 
-    void dfs(vector<vector<int>>& g , int target , vector<int> path , int i){
-        if(i >= g.size()) return;
-        path.push_back(i);
-        if(i == target) {res.push_back(path) ; return;}
-        for(auto next : g[i]){
-            dfs(g , target , path , next);
+        queue<pair<int , vector<int>>> queue;
+        queue.push({0 , {0}});
+        vector<vector<int>> res;
+        while(!queue.empty()){
+            auto front = queue.front();
+            queue.pop();
+            if(front.first == n - 1){
+                res.push_back(front.second);
+                continue;
+            }
+            for(auto next : g[front.first]){
+                auto path = front.second;
+                path.push_back(next);
+                queue.push({next , path});
+                path.pop_back(); 
+            }
         }
-    }
-
-    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
-        res.clear();
-        if(graph.size() == 0) return {};
-        for(auto edge : graph[0])
-            dfs(graph , graph.size() - 1 , {0} , edge);
         return res;
     }
 };
