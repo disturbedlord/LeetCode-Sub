@@ -42,7 +42,7 @@ public:
                 
             // }
             // cout<<endl;
-            if(seen[i] != 2 && adj[i].size() != 0 && findLoop(i)){cout<<i<<endl;return false;}
+            if(seen[i] != 2 && adj[i].size() != 0 && findLoop(i)){return false;}
             // seen[i] = 2;
         }
         return true;
