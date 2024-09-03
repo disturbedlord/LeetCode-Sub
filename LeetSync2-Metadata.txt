@@ -8,3 +8,4 @@
 133-clone-graph|Medium|1724697000000
 797-all-paths-from-source-to-target|Medium|1724697000000
 207-course-schedule|Medium|1724869800000
+509-fibonacci-number|Easy|1725301800000
