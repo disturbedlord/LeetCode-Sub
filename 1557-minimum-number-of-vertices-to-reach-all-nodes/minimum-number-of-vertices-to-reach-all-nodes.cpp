@@ -21,12 +21,12 @@ public:
         return adjllist;
     }
 
-    void dfs(int node , vector<int>& visited , llist& adjllist){
-        if(visited[node]) return;
-        for(auto next: adjllist[node]){
-            if(!visited[next]){
+    void dfs(int node , vector<int>* visited , llist* adjllist){
+        if(visited->at(node)) return;
+        for(auto next: (*adjllist)[node]){
+            if(!(*visited)[next]){
                 dfs(next , visited , adjllist);
-                visited[next] = 1;
+                (*visited)[next] = 1;
             }
         }
     }
@@ -37,7 +37,7 @@ public:
 
         for(int i=0;i<n;i++){
             if(!visited[i]){
-                dfs(i , visited , adjllist);
+                dfs(i , &visited , &adjllist);
             }
         }
         vector<int> res = vector<int>();
