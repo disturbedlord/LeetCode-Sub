@@ -10,3 +10,4 @@
 207-course-schedule|Medium|1724869800000
 509-fibonacci-number|Easy|1725301800000
 1557-minimum-number-of-vertices-to-reach-all-nodes|Medium|1725388200000
+1466-reorder-routes-to-make-all-paths-lead-to-the-city-zero|Medium|1725474600000
