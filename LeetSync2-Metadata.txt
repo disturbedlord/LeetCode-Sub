@@ -15,3 +15,4 @@
 994-rotting-oranges|Medium|1725647400000
 103-binary-tree-zigzag-level-order-traversal|Medium|1725647400000
 130-surrounded-regions|Medium|1725820200000
+1306-jump-game-iii|Medium|1725820200000
