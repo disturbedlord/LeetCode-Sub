@@ -22,15 +22,15 @@ public:
             int u = time[0];
             int v = time[1];
             int w = time[2];
-            cout<<u<<"-"<<v<<"-"<<w<<endl;
+            //cout<<u<<"-"<<v<<"-"<<w<<endl;
             adjList[u].push_back(Node(u , v , w));
         }
         
-        for(auto a : adjList){
-            for(auto b : a){
-                cout<<b.u<<" "<<b.v<<" "<<b.weight<<endl;
-            }
-        }
+        // for(auto a : adjList){
+        //     for(auto b : a){
+        //         cout<<b.u<<" "<<b.v<<" "<<b.weight<<endl;
+        //     }
+        // }
 
         return adjList;
     }
