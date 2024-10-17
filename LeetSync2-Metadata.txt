@@ -21,3 +21,4 @@
 329-longest-increasing-path-in-a-matrix|Hard|1726338600000
 743-network-delay-time|Medium|1726943400000
 1991-find-the-middle-index-in-array|Easy|1727721000000
+88-merge-sorted-array|Easy|1729103400000
